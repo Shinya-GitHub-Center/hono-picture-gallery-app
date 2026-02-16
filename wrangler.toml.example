@@ -1,0 +1,25 @@
+name = "hono-picture-gallery-app"
+compatibility_flags = [ "nodejs_compat" ]
+compatibility_date = "2026-02-10"
+main = "./src/index.tsx"
+workers_dev = true
+
+[observability]
+enabled = true
+
+# D1データベースの設定
+[[d1_databases]]
+binding = "DB"
+database_name = "hono-picture-gallery-app-db"
+database_id = "your-database-id-here"
+migrations_dir = "./src/middleware/db/migrations"
+
+# R2バケットの設定
+[[r2_buckets]]
+binding = "BUCKET"
+bucket_name = "hono-picture-gallery-app-bucket"
+
+# Better Auth用のシークレット設定
+# 以下のコマンドで設定してください：
+# bun run secret BETTER_AUTH_SECRET
+# bun run secret BETTER_AUTH_URL
